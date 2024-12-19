@@ -1,0 +1,2 @@
+.layout = "es"
+causes sending windows to other workspaces to not work
