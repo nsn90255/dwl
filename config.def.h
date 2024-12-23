@@ -128,13 +128,15 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 
 /* commands */
 static const char *termcmd[] = { "foot", NULL };
-static const char *menucmd[] = { "wmenu-run", "-S", "92b780" };
+static const char *menucmd[] = { "wmenu-run", "-S", "92b780", NULL };
 static const char *browsercmd[] = { "librewolf", NULL };
 static const char *up_vol[]   = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%",   NULL };
 static const char *down_vol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%",   NULL };
 static const char *mute_vol[] = { "pactl", "set-sink-mute",   "@DEFAULT_SINK@", "toggle", NULL };
 static const char *brighter[] = { "brightnessctl", "set", "10%+", NULL };
 static const char *dimmer[]   = { "brightnessctl", "set", "10%-", NULL };
+static const char *waylock[]   = { "waylock", NULL };
+static const char *screenshot[] = { "sh", "/home/hugo/screenshot" };
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
@@ -169,6 +171,8 @@ static const Key keys[] = {
         { 0,                         XKB_KEY_XF86AudioRaiseVolume,   spawn,          {.v = up_vol } },
 	{ 0,                         XKB_KEY_XF86MonBrightnessDown,  spawn,          {.v = dimmer } },
         { 0,                         XKB_KEY_XF86MonBrightnessUp,    spawn,          {.v = brighter } },
+	{ 0,                         XKB_KEY_Print,         spawn,          {.v = screenshot } },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_L,                      spawn,          {.v = waylock } },
 	TAGKEYS(          XKB_KEY_1, XKB_KEY_exclam,                     0),
 	TAGKEYS(          XKB_KEY_2, XKB_KEY_quotedbl,                    1),
 	TAGKEYS(          XKB_KEY_3, XKB_KEY_periodcentered,             2),
