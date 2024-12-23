@@ -133,6 +133,8 @@ static const char *browsercmd[] = { "librewolf", NULL };
 static const char *up_vol[]   = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%",   NULL };
 static const char *down_vol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%",   NULL };
 static const char *mute_vol[] = { "pactl", "set-sink-mute",   "@DEFAULT_SINK@", "toggle", NULL };
+static const char *brighter[] = { "brightnessctl", "set", "10%+", NULL };
+static const char *dimmer[]   = { "brightnessctl", "set", "10%-", NULL };
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
@@ -165,6 +167,8 @@ static const Key keys[] = {
 	{ 0,                         XKB_KEY_XF86AudioMute,          spawn,          {.v = mute_vol } },
         { 0,                         XKB_KEY_XF86AudioLowerVolume,   spawn,          {.v = down_vol } },
         { 0,                         XKB_KEY_XF86AudioRaiseVolume,   spawn,          {.v = up_vol } },
+	{ 0,                         XKB_KEY_XF86MonBrightnessDown,  spawn,          {.v = dimmer } },
+        { 0,                         XKB_KEY_XF86MonBrightnessUp,    spawn,          {.v = brighter } },
 	TAGKEYS(          XKB_KEY_1, XKB_KEY_exclam,                     0),
 	TAGKEYS(          XKB_KEY_2, XKB_KEY_quotedbl,                    1),
 	TAGKEYS(          XKB_KEY_3, XKB_KEY_periodcentered,             2),
