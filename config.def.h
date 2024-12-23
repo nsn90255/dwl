@@ -130,6 +130,9 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 static const char *termcmd[] = { "foot", NULL };
 static const char *menucmd[] = { "wmenu-run", "-S", "92b780" };
 static const char *browsercmd[] = { "librewolf", NULL };
+static const char *up_vol[]   = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%",   NULL };
+static const char *down_vol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%",   NULL };
+static const char *mute_vol[] = { "pactl", "set-sink-mute",   "@DEFAULT_SINK@", "toggle", NULL };
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
@@ -159,6 +162,9 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_period,     focusmon,       {.i = WLR_DIRECTION_RIGHT} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_less,       tagmon,         {.i = WLR_DIRECTION_LEFT} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_greater,    tagmon,         {.i = WLR_DIRECTION_RIGHT} },
+	{ 0,                         XKB_KEY_XF86AudioMute,          spawn,          {.v = mute_vol } },
+        { 0,                         XKB_KEY_XF86AudioLowerVolume,   spawn,          {.v = down_vol } },
+        { 0,                         XKB_KEY_XF86AudioRaiseVolume,   spawn,          {.v = up_vol } },
 	TAGKEYS(          XKB_KEY_1, XKB_KEY_exclam,                     0),
 	TAGKEYS(          XKB_KEY_2, XKB_KEY_quotedbl,                    1),
 	TAGKEYS(          XKB_KEY_3, XKB_KEY_periodcentered,             2),
