@@ -29,7 +29,7 @@ static int log_level = WLR_ERROR;
 
 /* Autostart */
 static const char *const autostart[] = {
-        "swaybg", "-i", "/home/hugo/Pictures/wallpaper.jpg", NULL,
+        "swaybg", "-i", "/common/wallpaper.jpg", NULL,
         NULL /* terminate */
 };
 
@@ -143,7 +143,7 @@ static const char *mute_vol[] = { "pactl", "set-sink-mute",   "@DEFAULT_SINK@", 
 static const char *brighter[] = { "brightnessctl", "set", "10%+", NULL };
 static const char *dimmer[]   = { "brightnessctl", "set", "10%-", NULL };
 static const char *waylock[]   = { "waylock", NULL };
-static const char *screenshot[] = { "sh", "/home/hugo/screenshot" };
+static const char *screenshot[] = { "sh", "/common/screenshot" };
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
